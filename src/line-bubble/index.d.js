@@ -10,9 +10,19 @@ export default {
     name: 'values',
     type: 'array',
     value: [45, 23, 102, 43, 55, 82, 69]
+  }, {
+    name: 'radiusMax',
+    type: 'number',
+    label: '最大直径',
+    value: 60
+  }, {
+    name: 'radiusMin',
+    type: 'number',
+    label: '最小直径',
+    value: 20
   }],
   size: {
     width: 600,
-    height: 360,
+    height: 360
   }
 }

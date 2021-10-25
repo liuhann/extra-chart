@@ -6,15 +6,15 @@
   * 转换图元基本属性列表到StoryBook的control需要的格式
   * @param {} configProps
   */
-export const toArgTypes = (configProps, configEvents) => {
+export const toArgTypes = (configProps, configEvents, def) => {
   const result = {}
 
   if (Array.isArray(configProps)) {
     for (const prop of configProps) {
       result[prop.name] = {
-        name: prop.name,
+        name: prop.label,
         description: prop.label,
-        defaultValue: prop.value || prop.defaultValue
+        defaultValue: prop.value
       }
       switch (prop.type) {
         case 'boolean':
@@ -99,16 +99,14 @@ export const toArgTypes = (configProps, configEvents) => {
     }
   }
 
-  result.isRuntime = {
-    name: '运行时/编辑态',
-    control: { type: 'boolean' }
-  }
   result.width = {
     name: '宽度',
+    defaultValue: def.size ? def.size.width : null,
     control: { type: 'number' }
   }
   result.height = {
     name: '高度',
+    defaultValue: def.size ? def.size.height : null,
     control: { type: 'number' }
   }
 
