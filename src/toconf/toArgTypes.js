@@ -55,6 +55,15 @@ export const toArgTypes = (configProps, configEvents, def) => {
                 }
               })
               break
+            case 'select':
+              Object.assign(result[prop.name], {
+                options: Object.keys(prop.options),
+                control: {
+                  type: 'select',
+                  labels: prop.options
+                }
+              })
+              break
             default:
               Object.assign(result[prop.name], {
                 control: {
