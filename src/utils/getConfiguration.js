@@ -45,7 +45,7 @@ export const getConfiguration = def => {
   }
 
   configuration.story = {
-    name: '属性配置测试',
+    name: '可配置',
     argTypes: toArgTypes(def.props, def.events, def),
     parameters: {
       // 通用的方法将size封装为插件接受的格式

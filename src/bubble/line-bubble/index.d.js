@@ -1,10 +1,10 @@
-import ForceCenterBubble from './ForceCenterBubble.jsx'
+import Bubble from './Bubble.jsx'
 
 // StoryBook CSF格式，同时也是UI组件的描述格式
 export default {
-  title: '聚集气泡图',
-  name: 'ForceCenterBubble',
-  component: ForceCenterBubble,
+  title: '气泡图/直线分布图',
+  name: 'Bubble',
+  component: Bubble,
   // 可配置属性列表，具体规则看样例
   props: [{
     name: 'values',

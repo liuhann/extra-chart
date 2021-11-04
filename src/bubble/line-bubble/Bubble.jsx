@@ -4,7 +4,7 @@ import divideC2c from './layout/divide-c2c.js'
 import fixedC2c from './layout/fixed-c2c.js'
 import fixedE2e from './layout/fixed-e2e.js'
 
-import anime, { getRelativeValue } from '../anime.es'
+import anime, { getRelativeValue } from '../../utils/anime.es.js'
 import './button.css'
 
 const layoutStrategy = {

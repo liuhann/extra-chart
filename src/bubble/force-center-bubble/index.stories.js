@@ -1,5 +1,5 @@
 import cd from './index.d.js'
-import { getConfiguration } from '../toconf/getConfiguration'
+import { getConfiguration } from '../../utils/getConfiguration'
 
 export default cd
 

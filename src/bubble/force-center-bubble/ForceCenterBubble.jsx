@@ -1,26 +1,30 @@
 import React, { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
+import { renderBubble } from '../render/bubble.jsx'
 
+/**
+ * 聚集气泡图
+ */
 export default ({
   values = [45, 23, 102, 43, 55, 82, 69],
   // Average Distance
   ad = 20,
-  duration = 800,
   // 最大半径
   radiusMax = 60,
   // 最小半径
   radiusMin = 50,
   // 进入动画相关
   entranceDelay = 100,
-  entranceTranslateX = '=0',
-  entranceTranslateY = '-=0',
   entranceEasing = 'spring(1, 80, 10, 0)',
+  boxShadow = '',
+  background = '#eee',
   width = 420,
   height = 360
 }) => {
   const ref = useRef()
-  const nodes = values.map(value => {
+  const nodes = values.map((value, i) => {
     return {
+      i,
       r: value,
       x: Math.random() * width,
       y: Math.random() * height
@@ -42,12 +46,17 @@ export default ({
     simulation.on('tick', () => {
       if (ref && ref.current) {
         simulation.nodes().forEach((d, i) => {
-          ref.current.querySelector('[data-index="d-' + i + '"]').style.transform = `translate(${d.x - d.r / 2}px, ${d.y - d.r / 2}px)`
+          ref.current.querySelector('[data-seq="bubble-' + i + '"]').style.transform = `translate(${d.x - d.r / 2}px, ${d.y - d.r / 2}px)`
         })
       }
       simulation.stop()
     })
   })
+
+  const options = {
+    boxShadow,
+    background
+  }
 
   return (
     <div
@@ -58,19 +67,7 @@ export default ({
         boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'
       }}
     >
-      {nodes.map((d, i) => <div
-        data-index={'d-' + i}
-        key={i} style={{
-          position: 'absolute',
-          transition: 'transform .4s linear',
-          left: 0,
-          top: 0,
-          borderRadius: '100%',
-          width: d.r + 'px',
-          height: d.r + 'px',
-          background: '#eee'
-        }}
-                           />)}
+      {nodes.map((d, i) => renderBubble(d, 'basic', nodes, options))}
     </div>
   )
 }
