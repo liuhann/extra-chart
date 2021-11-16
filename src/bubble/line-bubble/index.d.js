@@ -1,4 +1,5 @@
 import Bubble from './Bubble.jsx'
+import { commonProps } from '../utils'
 
 // StoryBook CSF格式，同时也是UI组件的描述格式
 export default {
@@ -10,7 +11,7 @@ export default {
     name: 'values',
     type: 'array',
     value: [45, 23, 102, 43, 55, 82, 69]
-  }, {
+  }, ...commonProps, {
     name: 'layoutType',
     label: '分布方式',
     type: 'string',
@@ -23,25 +24,10 @@ export default {
     },
     value: 'divideE2e'
   }, {
-    name: 'radiusMax',
-    type: 'number',
-    label: '最大直径',
-    value: 60
-  }, {
-    name: 'radiusMin',
-    type: 'number',
-    label: '最小直径',
-    value: 20
-  }, {
     name: 'al',
     type: 'number',
     label: '间距',
     value: 40
-  }, {
-    name: 'ad',
-    type: 'number',
-    label: '边缘间距',
-    value: 20
   }, {
     name: 'entranceTranslateX',
     type: 'string',

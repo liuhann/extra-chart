@@ -16,8 +16,9 @@ export default ({
       {data && data.map((d, i) => <div
         key={i} style={{
           borderRadius: '100%',
-          left: d.x + 'px',
-          top: d.y + 'px',
+          opacity: 0.4,
+          left: (d.x - d.r / 2) + 'px',
+          top: (d.y - d.r / 2) + 'px',
           position: 'absolute',
           width: d.r + 'px',
           height: d.r + 'px',

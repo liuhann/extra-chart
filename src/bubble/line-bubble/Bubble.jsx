@@ -119,7 +119,7 @@ export default ({
   // 进入动画相关
   entranceDelay = 100,
   entranceTranslateX = '=0',
-  entranceTranslateY = '-=0',
+  entranceTranslateY = '-=10',
   entranceEasing = 'spring(1, 80, 10, 0)',
   width = 600,
   height = 300
